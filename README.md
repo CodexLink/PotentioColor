@@ -26,7 +26,7 @@
 # Authors
 
 # License
-This project is licensed under the GNU v3 License - see the [LICENSE.md](https://github.com/CodexLink/IoTMesC/blob/master/README.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/CodexLink/RGBPotentIdentifier/blob/master/LICENSE) file for details
 
 # Credits
 - [Color-names](https://github.com/jonathantneal/color-names) | Many,many names of colors by [jonathantneal](https://github.com/jonathantneal)
