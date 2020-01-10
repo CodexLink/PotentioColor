@@ -74,7 +74,7 @@ class RGBInterfacer(MySQLEssentialHelper):
             for ports in SerialTools.comports():
                 return True if ports.device == self.LastCOMPort else False # ! We identify each and if one is one of them then return true.
         else:
-            return False # ! If none is valid or equivalent to the supplemented arguments then we return False and terminate the program.
+            raise Exception # ! If none is valid or equivalent to the supplemented arguments then we raised Exception and terminate the program.
 
     # ! STEP 1 | First we have to gather the data from the serial from Arduino.
     # * This function reads the whole serial data line given by Arduino. All data is here unprocessed except data encoding which is utf-8.
@@ -178,10 +178,7 @@ if __name__ == '__main__':
     try:
         while PrimaryClass.isDeviceConnected():
             PrimaryClass.gatherData()
-        else:
-            # ! We end program with exception raised to print out data.
-            raise Exception
-    except:
+    except TypeError:
         print('Device Communication Error | Device COM Port Supplemented Suddenly Disconnected.')
         Terminate()
 '''
