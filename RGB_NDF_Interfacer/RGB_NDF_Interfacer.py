@@ -1,4 +1,4 @@
-'''
+"""
     RGB Name Definition Finder | Python Interfacer
     Created by Janrey "CodexLink" Licas
     Supported by Janos Angelo Jantoc and Johnell Casey Murillo Panotes
@@ -6,8 +6,8 @@
 
     github.com/CodexLink
 
-'''
-from subprocess import call as CommandLine
+"""
+from subprocess import Popen as CommandLine
 from sys import exit as Terminate
 from time import sleep as delay
 
@@ -181,11 +181,3 @@ if __name__ == '__main__':
     except TypeError:
         print('Device Communication Error | Device COM Port Supplemented Suddenly Disconnected.')
         Terminate()
-'''
-    RGB Name Definition Finder | Python Interfacer
-    Created by Janrey "CodexLink" Licas
-    Supported by Janos Angelo Jantoc and Johnell Casey Murillo Panotes
-    Made for Embedded Systems | Prelim Case Study
-
-    github.com/CodexLink
-'''
