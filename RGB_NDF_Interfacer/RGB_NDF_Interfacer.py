@@ -7,7 +7,7 @@
     github.com/CodexLink
 
 '''
-from os import system as CommandLine
+from subprocess import call as CommandLine
 from sys import exit as Terminate
 from time import sleep as delay
 
@@ -72,10 +72,7 @@ class RGBInterfacer(MySQLEssentialHelper):
         if self.AVInt.is_open:
             # If that is opened, we iterate to the Library declared with the name of SerialTools
             for ports in SerialTools.comports():
-                if ports.device == self.LastCOMPort:
-                    return True # ! We identify each and if one is one of them then return true.
-                else:
-                    continue
+                return True if ports.device == self.LastCOMPort else False # ! We identify each and if one is one of them then return true.
         else:
             return False # ! If none is valid or equivalent to the supplemented arguments then we return False and terminate the program.
 
@@ -152,7 +149,7 @@ class RGBInterfacer(MySQLEssentialHelper):
 
     def displayColors(self, RHex, GHex, BHex, RValue, GValue, BBlue):
         try:
-            ColorName = self.MySQL_ExecuteState("SELECT ColorName FROM RGB WHERE HexValue = '#%s%s%s'" % (RHex.zfill(2).upper(), GHex.zfill(2).upper(), BHex.zfill(2).upper()))
+            ColorName = self.MySQL_ExecuteState("SELECT ColorName FROM RGB WHERE HexValue = '#%s%s%s'", (RHex.zfill(2).upper(), GHex.zfill(2).upper(), BHex.zfill(2).upper()))
             # ! Output Structure of ColorName depends if they find a row that matches the query given values.
             # * When query returns None, it does NOT defined itself as LIST because there is nothing to output.
             # * Therefore we run and display the color as unknown.
@@ -171,7 +168,7 @@ class RGBInterfacer(MySQLEssentialHelper):
             pass
 
 if __name__ == '__main__':
-    CommandLine('CLS')
+    CommandLine('CLS', shell=True)
     print('RGB Interfacer for Arduino Sketch | Serial Receiver')
     print("Created by Janrey Licas, Janos Garcia Jantoc and Johnell Casey Murillo Panotes")
     delay(1.5)
@@ -194,5 +191,4 @@ if __name__ == '__main__':
     Made for Embedded Systems | Prelim Case Study
 
     github.com/CodexLink
-
 '''
