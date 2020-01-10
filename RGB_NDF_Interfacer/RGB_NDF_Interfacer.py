@@ -7,7 +7,7 @@
     github.com/CodexLink
 
 """
-from subprocess import Popen as CommandLine
+from subprocess import call as CommandLine
 from sys import exit as Terminate
 from time import sleep as delay
 
